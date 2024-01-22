@@ -6,34 +6,38 @@ export default function Form({ onAddActivity }) {
         submission.preventDefault();
         const formData = new FormData(submission.target)
         const data = Object.fromEntries(formData)
-        console.log("this is data from the formData:", data)
-        onAddActivity(newActivity);
+        const name = data.name
+        const isForGoodWeather = data.isForGoodWeather
+        data.isForGoodWeather = formData.has("isForGoodWeather")
+
+        console.log("this is data from the formData:", data, name, isForGoodWeather)
+
+        onAddActivity(data);
     }
 
     return (
-        <>
-            <form className="form-addnewactivity" onSubmit={HandleSubmit}>
-                <h2 className="title-form">Add New Activity:</h2>
 
-                {/* NAME FOR ACTIVITY FIELD  */}
-                <label className="label-input-name-activity" htmlFor="input-name-activity">Name:</label>
-                <input type="text"
-                    className="input-name-activity"
-                    id="input-name-activity"
-                    name="input-name-activity" />
+        <form className="form-addnewactivity" onSubmit={HandleSubmit}>
+            <h2 className="title-form">Add New Activity:</h2>
 
-                {/* CHECKBOX for GOOD WEATHER ACTIVITY */}
-                <label className="label-for-checkbox" htmlFor="input-checkbox">Name:</label>
-                <input type="checkbox"
-                    className="input-checkbox"
-                    id="input-checkbox"
-                    name="input-checkbox" />
+            {/* NAME FOR ACTIVITY FIELD  */}
+            <label className="label-input-name-activity" htmlFor="input-name-activity">Name:</label>
+            <input type="text"
+                className="input-name-activity"
+                id="input-name-activity"
+                name="name" />
 
-                <button className="submit-button">
-                    <input type="submit"
-                        value="Submit" />
-                </button>
-            </form>
-        </>)
+            {/* CHECKBOX for GOOD WEATHER ACTIVITY */}
+            <label className="label-for-checkbox" htmlFor="input-checkbox">Good-Weather Activity:</label>
+            <input type="checkbox"
+                className="input-checkbox"
+                id="input-checkbox"
+                name="isForGoodWeather"
+            />
+
+            <button type="submit" className="submit-button">Submit
+            </button>
+        </form>
+    )
 
 }

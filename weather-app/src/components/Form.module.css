@@ -1,12 +1,27 @@
-.form-addnewactivity .title-form {
+.form-addnewactivity {
+  display: flex;
+  flex-direction: column;
+}
+.title-form {
 }
 .label-input-name-activity {
+  margin: 5px;
+  padding: 5px;
 }
 .input-name-activity {
+  margin: 5px;
+  padding: 5px;
 }
 .label-for-checkbox {
+  margin: 5px;
+  padding: 5px;
 }
 .input-checkbox {
+  margin: 5px;
+  padding: 5px;
 }
 .submit-button {
+  margin: 5px;
+  padding: 5px;
+  width: 90px;
 }
