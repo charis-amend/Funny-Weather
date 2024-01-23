@@ -32,6 +32,7 @@
 }
 .label-input-name-activity {
   box-sizing: border-box;
+  font-size: 12px;
 
   margin: 5px;
   padding: 5px;
@@ -94,7 +95,7 @@
 
 .label-for-checkbox {
   box-sizing: border-box;
-
+  font-size: 12px;
   text-align: left;
   margin: 5px;
   padding: 5px;

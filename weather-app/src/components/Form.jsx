@@ -1,6 +1,7 @@
+import { useState } from "react";
+
 // eslint-disable-next-line react/prop-types
 export default function Form({ onAddActivity }) {
-
     // submit event:
     function HandleSubmit(submission) {
         submission.preventDefault();
@@ -27,11 +28,13 @@ export default function Form({ onAddActivity }) {
             <input type="text"
                 className="input-name-activity"
                 id="input-name-activity"
-                name="name" required
+                name="name"
+
+                required
             />
 
             {/* CHECKBOX for GOOD WEATHER ACTIVITY */}
-            <label className="label-for-checkbox" htmlFor="input-checkbox">Good-Weather Activity</label>
+            <label className="label-for-checkbox" htmlFor="input-checkbox">Good Weather Activity</label>
             <div className="checkbox-wrapper">
                 <input type="checkbox"
                     className="input-checkbox"
