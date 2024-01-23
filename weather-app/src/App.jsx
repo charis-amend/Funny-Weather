@@ -11,27 +11,41 @@ import useLocalStorageState from 'use-local-storage-state'
 function App() {
   const [activities, setActivities] = useLocalStorageState("activities", { defaultValue: [] })
   const [weather, setWeather] = useState("");
+
+
   useEffect(() => {
     async function startFetching() {
-
       const response = await fetch("https://example-apis.vercel.app/api/weather")
       const weather = await response.json();
       console.log(weather)
       setWeather(weather);
     }
-    startFetching();
-  }, [])
+    // startFetching();
+
+    function intervalWeather() {
+      setInterval(() => {
+        startFetching();
+      }, 5000);
+      return () => clearInterval(intervalWeather)
+    }
+    intervalWeather();
+  }, []);
 
   function AddActivity(newActivity) {
     setActivities([...activities, { ...newActivity, id: uid() }])
   }
+  function DeleteActivity(activityToDelete) {
+    const remainingActivities = activities.filter((activity) => activity !== activityToDelete);
+    setActivities(remainingActivities);
+  }
+
   const isGoodWeather = weather?.isGoodWeather
-  console.log("the condition whether isGoodWeather from the api", isGoodWeather)
-  console.log("activities:", activities)
+  // console.log("the condition whether isGoodWeather from the api", isGoodWeather)
+  // console.log("activities:", activities)
   const goodWeatherActivities = activities.filter(activity =>
     activity.isForGoodWeather === true
   )
-  console.log(goodWeatherActivities)
+  // console.log(goodWeatherActivities)
   const badWeatherActivities = activities.filter(activity =>
     activity.isForGoodWeather === false
   )
@@ -48,7 +62,8 @@ function App() {
       </section>
       <List
         instructions={isGoodWeather ? "The weather is awesome! Go outside and:" : "Bad weather outside! Here's what you can do now:"}
-        activities={isGoodWeather ? goodWeatherActivities : badWeatherActivities}>
+        activities={isGoodWeather ? goodWeatherActivities : badWeatherActivities}
+        onDeleteActivity={DeleteActivity}>
       </List >
       <Form onAddActivity={AddActivity} />
       {/* <WeatherBackground className='weather-background' currentWeatherCondition={weather?.condition} /> */}

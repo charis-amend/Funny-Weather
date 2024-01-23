@@ -13,6 +13,8 @@ export default function Form({ onAddActivity }) {
         console.log("this is data from the formData:", data, name, isForGoodWeather)
 
         onAddActivity(data);
+        submission.target.reset();
+        submission.target.elements.name.focus();
     }
 
     return (
