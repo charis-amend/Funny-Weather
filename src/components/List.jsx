@@ -13,7 +13,9 @@ export default function List({ activities, instructions, onDeleteActivity }) {
                         <button className="delete-list-item-button"
                             type="button"
                             aria-label="delete a list item here"
-                            onClick={() => onDeleteActivity?.(activity)}>
+                            onClick={() => {
+                                onDeleteActivity?.(activity)
+                            }}>
                             ✖️
                         </button>
                     </li>

@@ -47,10 +47,15 @@ function App() {
   function AddActivity(newActivity) {
     setActivities([...activities, { ...newActivity, id: uid() }])
   }
+
   function DeleteActivity(activityToDelete) {
-    const remainingActivities = activities.filter((activity) => activity !== activityToDelete);
-    setActivities(remainingActivities);
+    let answer = window.confirm(`The activity "${activityToDelete.name}" will be deleted. Are you sure?`);
+    if (answer) {
+      const remainingActivities = activities.filter((activity) => activity !== activityToDelete);
+      setActivities(remainingActivities);
+    }
   }
+
   function RefreshPage() { window.location.reload(); }
 
   const isGoodWeather = weather?.isGoodWeather
@@ -102,9 +107,7 @@ function App() {
 
   return (
     <div className="background-app" style={{ backgroundImage: `url(${backgroundUrlImg})` }}>
-      <div className='title'>
-        <img onClick={RefreshPage} className="cloud-app-icon" src={cloudAppIcon} alt='cloud-app-icon' />
-      </div>
+      <img onClick={RefreshPage} className="cloud-app-icon" src={cloudAppIcon} alt='cloud-app-icon' />
       <section className='weather-api-section'>
         <p className='city-weather-api'>Kharkiv</p>
         <p className='current-date-and-time'>{currentDateAndTime}</p>
