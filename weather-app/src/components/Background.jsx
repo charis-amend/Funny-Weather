@@ -8,40 +8,40 @@ import rainyBackground from "../assets/rainy-background-img.jpg"
 // eslint-disable-next-line react/prop-types
 export default function Background({ currentWeatherCondition }) {
 
-    let WeatherComponent;
+    let WeatherImg;
 
     switch (currentWeatherCondition) {
         case '🌤️':
-            WeatherComponent = SunAndShower;
+            WeatherImg = SunAndShowerImg;
             break;
         case '⛈️':
-            WeatherComponent = Thunderstorm;
+            WeatherImg = ThunderstormImg;
             break;
         case '☁️':
-            WeatherComponent = Cloudy;
+            WeatherImg = CloudyImg;
             break;
         case '❄️':
-            WeatherComponent = Snow;
+            WeatherImg = SnowImg;
             break;
         case "☀️":
-            WeatherComponent = Sunny;
+            WeatherImg = SunnyImg;
             break;
         case '🌧️':
-            WeatherComponent = Rainy;
+            WeatherImg = RainyImg;
             break;
         default:
-            WeatherComponent = null;
+            WeatherImg = null;
     }
 
     return (
         <>
-            {WeatherComponent && <WeatherComponent />}
+            {WeatherImg && <WeatherImg />}
         </>
     );
 
 }
 
-function SunAndShower() {
+function SunAndShowerImg() {
     return (
         <>
             <div className="background-app">
@@ -53,7 +53,7 @@ function SunAndShower() {
     )
 }
 
-function Thunderstorm() {
+function ThunderstormImg() {
     return (
         <>
             <div className="background-app">
@@ -65,7 +65,7 @@ function Thunderstorm() {
     )
 }
 
-function Cloudy() {
+function CloudyImg() {
     return (
         <>
             <div className="background-app">
@@ -77,7 +77,7 @@ function Cloudy() {
     )
 }
 
-function Snow() {
+function SnowImg() {
     return (
 
         <>
@@ -90,7 +90,7 @@ function Snow() {
     )
 }
 
-function Sunny() {
+function SunnyImg() {
     return (
         <>
             <div className="background-app">
@@ -102,7 +102,7 @@ function Sunny() {
     )
 }
 
-function Rainy() {
+function RainyImg() {
     return (
         <>
             <div className="background-app">

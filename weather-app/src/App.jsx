@@ -71,7 +71,7 @@ function App() {
       <div className='title'>
         <h1 className='app-title'>Weather App</h1>
       </div>
-      <Background className="background-app" currentWeatherCondition={weather?.condition}>
+      <Background currentWeatherImg={weather?.condition}>
         <section className='weather-api-section'>
           {/* <h4 id='emoji-weather'>{weather?.condition}</h4> */}
           <p className='city-weather-api'>Kharkiv</p>
