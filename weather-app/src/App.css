@@ -3,7 +3,6 @@
 @import "./components/List.module.css";
 @import "./components/weather-api-section.module.css";
 @import "./components/checkbox.module.css";
-@import "./components/Background.module.css";
 
 #root {
   max-width: 1280px;
@@ -13,14 +12,56 @@
   display: flex;
   flex-direction: column;
 }
-
+/* 
 .title {
   display: flex;
+  z-index: 5;
 }
 
 .app-title {
   font-family: "DMSerif Regular";
   src: url("./assets/fonts/DMSerifDisplay-Regular.ttf") format("truetype");
   font-size: 25px;
-  margin-block: 1px;
+  margin-block: 5px;
+  z-index: 5;
+} */
+
+.background-app {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  z-index: -1; /* Set to -1 to ensure it's behind other content */
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  background-attachment: fixed;
+}
+
+.background-app::before {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Adjust for darker or lighter overlay */
+  z-index: -1;
 }

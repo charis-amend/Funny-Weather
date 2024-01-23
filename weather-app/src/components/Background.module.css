@@ -1,27 +1,24 @@
-.background-app {
-  z-index: -1;
-  background-size: cover; /* This ensures that the background covers the entire element */
-  background-position: center; /* This centers the background image in the element */
-  background-repeat: no-repeat; /* This prevents the image from repeating */
-  min-height: 100vh; /* This ensures that the background spans the full viewport height */
-  width: 100%; /* This ensures the background spans the full width of its container */
-  position: relative; /* Ensures that the content inside can be positioned relatively to this container */
-}
-
-/* .sunandshower-background-img {
+/* 
+.sunnyandshower-background-img {
+  z-index: 0;
 }
 
 .thunderstorm-background-img {
+  z-index: 0;
 }
 
 .cloudy-background-img {
+  z-index: 0;
 }
 
 .snow-background-img {
+  z-index: 0;
 }
 
 .sunny-background-img {
+  z-index: 0;
 }
 
 .rainy-background-img {
+  z-index: 0;
 } */
