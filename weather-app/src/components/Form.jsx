@@ -27,7 +27,8 @@ export default function Form({ onAddActivity }) {
             <input type="text"
                 className="input-name-activity"
                 id="input-name-activity"
-                name="name" />
+                name="name" required
+            />
 
             {/* CHECKBOX for GOOD WEATHER ACTIVITY */}
             <label className="label-for-checkbox" htmlFor="input-checkbox">Good-Weather Activity</label>

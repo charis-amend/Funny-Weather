@@ -21,10 +21,16 @@ function App() {
 
   useEffect(() => {
     async function startFetching() {
-      const response = await fetch("https://example-apis.vercel.app/api/weather")
-      const weather = await response.json();
-      console.log(weather)
-      setWeather(weather);
+      try {
+        const response = await fetch("https://example-apis.vercel.app/api/weather")
+        const weather = await response.json();
+        console.log(weather)
+        setWeather(weather);
+
+      } catch (error) {
+        alert("Couldn't connect to the weather API")
+      }
+
     }
     // startFetching();
 
