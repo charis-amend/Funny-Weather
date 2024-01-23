@@ -4,7 +4,7 @@ export default function List({ activities, instructions, onDeleteActivity }) {
 
     return (
         <>
-            <h3 className="instructions-list">{instructions}</h3>
+            <p className="instructions-list">{instructions}</p>
             <ul className="activity-list">
                 {activities.map((activity) => (
                     <li key={activity.id} className="list-item">

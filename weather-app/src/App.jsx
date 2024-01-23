@@ -49,22 +49,41 @@ function App() {
   const badWeatherActivities = activities.filter(activity =>
     activity.isForGoodWeather === false
   )
+  const createDateTime = new Date();
+  const options = {
+    weekday: 'short',
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  };
+  let currentDateAndTime = createDateTime.toLocaleString('en-US', options);
+  // Removing all commas
+  currentDateAndTime = currentDateAndTime.replace(/,/g, '');
+  // Converting AM/PM to lowercase
+  currentDateAndTime = currentDateAndTime.replace('AM', 'am').replace('PM', 'pm');
+  console.log(currentDateAndTime)
 
   return (
     <>
       <div className='title'>
-        <h1>Weather App</h1>
+        <h1 className='app-title'>Weather App</h1>
       </div>
-      <section className='weather api'>
+      <section className='weather-api-section'>
         {/* <h4 id='emoji-weather'>{weather?.condition}</h4> */}
+        <p className='city-weather-api'>Kharkiv</p>
+        <p className='current-date-and-time'>{currentDateAndTime}</p>
         <WeatherBackground className='weather-background' currentWeatherCondition={weather?.condition} />
         <h4 id='temperature-weather'>{weather?.temperature} °C</h4>
       </section>
-      <List
-        instructions={isGoodWeather ? "The weather is awesome! Go outside and:" : "Bad weather outside! Here's what you can do now:"}
-        activities={isGoodWeather ? goodWeatherActivities : badWeatherActivities}
-        onDeleteActivity={DeleteActivity}>
-      </List >
+      <section className='List-Section'>
+        <List
+          instructions={isGoodWeather ? <span>The weather is awesome! <br /> Go outside and:</span> : <span>Bad weather outside! <br /> Here is what you can do now:</span>}
+          activities={isGoodWeather ? goodWeatherActivities : badWeatherActivities}
+          onDeleteActivity={DeleteActivity}>
+        </List >
+      </section>
       <Form onAddActivity={AddActivity} />
       {/* <WeatherBackground className='weather-background' currentWeatherCondition={weather?.condition} /> */}
     </>

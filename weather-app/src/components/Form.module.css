@@ -1,27 +1,74 @@
 .form-addnewactivity {
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border: solid 2px rgba(255, 255, 255, 0.87);
+  border-radius: 10px;
+
+  margin: 5px;
+  padding: 10px;
+  width: 100%;
+
+  display: grid;
+  /* grid-template-columns: 4;
+  grid-template-rows: 4; */
+  grid-template-areas:
+    "title title title title"
+    "name input input input"
+    "label label label checkbox"
+    "submit submit submit submit";
 }
 .title-form {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 0px;
+  box-sizing: border-box;
+  width: 100%;
+  grid-area: title;
 }
 .label-input-name-activity {
+  box-sizing: border-box;
+
   margin: 5px;
   padding: 5px;
+
+  grid-area: name;
 }
 .input-name-activity {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: left;
+
   margin: 5px;
   padding: 5px;
+
+  grid-area: input;
 }
 .label-for-checkbox {
+  box-sizing: border-box;
+
+  text-align: left;
   margin: 5px;
   padding: 5px;
+  grid-area: label;
 }
 .input-checkbox {
+  box-sizing: border-box;
+
   margin: 5px;
   padding: 5px;
+  grid-area: checkbox;
 }
 .submit-button {
+  box-sizing: border-box;
   margin: 5px;
-  padding: 5px;
-  width: 90px;
+  padding: 10px;
+  width: fit-content;
+  grid-area: submit;
+  display: flex;
+  justify-self: center;
 }

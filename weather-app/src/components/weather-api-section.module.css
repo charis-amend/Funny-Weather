@@ -1,0 +1,28 @@
+.weather-api-section {
+  display: flex;
+  flex-direction: column;
+  margin: 1px;
+  margin-top: 70px;
+  padding: 2px;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.city-weather-api {
+  margin-block: 1px;
+}
+
+.current-date-and-time {
+  margin-block: 1px;
+}
+
+.weather-background {
+  margin-top: 20px;
+  padding-top: 5px;
+}
+
+#temperature-weather {
+  font-size: 40px;
+  margin-block: 2px;
+}

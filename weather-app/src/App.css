@@ -1,8 +1,24 @@
 @import "./components/Form.module.css";
 @import "./components/WeatherBackground.module.css";
+@import "./components/List.module.css";
+@import "./components/weather-api-section.module.css";
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 10px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  display: flex;
+}
+
+.app-title {
+  font-family: "DMSerif Regular";
+  src: url("./assets/fonts/DMSerifDisplay-Regular.ttf") format("truetype");
+  font-size: 25px;
+  margin-block: 1px;
 }

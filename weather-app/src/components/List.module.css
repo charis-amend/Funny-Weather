@@ -1,0 +1,48 @@
+.List-Section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.instructions-list {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 0px;
+  box-sizing: border-box;
+}
+
+.activity-list {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  width: 90%;
+  margin-top: 0px;
+  box-sizing: border-box;
+}
+
+.list-item {
+  background-color: rgba(255, 255, 255, 0.87);
+  color: #242424;
+  font-weight: 600;
+  border-radius: 10px;
+
+  list-style: none;
+  padding: 5px;
+  padding-left: 15px;
+  margin: 5px;
+  text-align: left;
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-list-item-button {
+  margin: 5px;
+  background-color: transparent;
+  border: none;
+}
