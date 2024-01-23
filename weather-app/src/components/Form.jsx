@@ -1,4 +1,3 @@
-import { useState } from "react";
 
 // eslint-disable-next-line react/prop-types
 export default function Form({ onAddActivity }) {
