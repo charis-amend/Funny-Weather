@@ -11,13 +11,16 @@
 
 .city-weather-api {
   margin-block: 1px;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .current-date-and-time {
   margin-block: 1px;
+  font-size: 12px;
 }
 
-.weather-background {
+.weather-icon {
   margin-top: 20px;
   padding-top: 5px;
 }

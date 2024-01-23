@@ -1,13 +1,18 @@
 // import { useState } from 'react'
 import { useEffect, useState } from 'react'
 import './App.css'
+import { uid } from 'uid'
+import useLocalStorageState from 'use-local-storage-state'
 import Form from './components/Form.jsx'
 import List from './components/List.jsx'
 import WeatherIcon from './components/WeatherIcon.jsx'
-import Background from './components/Background.jsx'
-// import { useState } from 'react'
-import { uid } from 'uid'
-import useLocalStorageState from 'use-local-storage-state'
+
+import sunnyandshowerBackground from "./assets/sunnyandshower-background-img.jpg";
+import thunderstormBackground from "./assets/thunderstorm-background-img.jpg";
+import cloudyBackground from "./assets/cloudy-background-img.jpg";
+import snowBackground from "./assets/snow-background-img.jpg";
+import sunnyBackground from "./assets/sunny-background-img.jpg";
+import rainyBackground from "./assets/rainy-background-img.jpg";
 
 function App() {
   const [activities, setActivities] = useLocalStorageState("activities", { defaultValue: [] })
@@ -46,10 +51,10 @@ function App() {
   const goodWeatherActivities = activities.filter(activity =>
     activity.isForGoodWeather === true
   )
-  // console.log(goodWeatherActivities)
   const badWeatherActivities = activities.filter(activity =>
     activity.isForGoodWeather === false
   )
+
   const createDateTime = new Date();
   const options = {
     weekday: 'short',
@@ -66,29 +71,47 @@ function App() {
   currentDateAndTime = currentDateAndTime.replace('AM', 'am').replace('PM', 'pm');
   console.log(currentDateAndTime)
 
+  function SwitchBackground(weatherCondition) {
+    weatherCondition = weather.condition
+    switch (weatherCondition) {
+      case '🌤️':
+        return sunnyandshowerBackground;
+      case '⛈️':
+        return thunderstormBackground;
+      case '☁️':
+        return cloudyBackground;
+      case '❄️':
+        return snowBackground;
+      case "☀️":
+        return sunnyBackground;
+      case '🌧️':
+        return rainyBackground;
+      default:
+        return sunnyBackground;
+    }
+  }
+  const backgroundUrlImg = SwitchBackground(weather?.condition)
+
   return (
-    <>
-      <div className='title'>
+    <div className="background-app" style={{ backgroundImage: `url(${backgroundUrlImg})` }}>
+      {/* <div className='title'>
         <h1 className='app-title'>Weather App</h1>
-      </div>
-      <Background className="background-app" currentWeatherCondition={weather?.condition}>
-        <section className='weather-api-section'>
-          {/* <h4 id='emoji-weather'>{weather?.condition}</h4> */}
-          <p className='city-weather-api'>Kharkiv</p>
-          <p className='current-date-and-time'>{currentDateAndTime}</p>
-          <WeatherIcon className='weather-background' currentWeatherCondition={weather?.condition} />
-          <h4 id='temperature-weather'>{weather?.temperature} °C</h4>
-        </section>
-        <section className='List-Section'>
-          <List
-            instructions={isGoodWeather ? <span>The weather is awesome! <br /> Go outside and</span> : <span>Bad weather outside! <br /> Here is what you can do now</span>}
-            activities={isGoodWeather ? goodWeatherActivities : badWeatherActivities}
-            onDeleteActivity={DeleteActivity}>
-          </List >
-        </section>
-        <Form onAddActivity={AddActivity} />
-      </Background>
-    </>
+      </div> */}
+      <section className='weather-api-section'>
+        <p className='city-weather-api'>Kharkiv</p>
+        <p className='current-date-and-time'>{currentDateAndTime}</p>
+        <WeatherIcon className='weather-icon' currentWeatherCondition={weather?.condition} />
+        <h4 id='temperature-weather'>{weather?.temperature} °C</h4>
+      </section>
+      <section className='List-Section'>
+        <List
+          instructions={isGoodWeather ? <span>The weather is awesome! <br /> Go outside and</span> : <span>Bad weather outside! <br /> Here is what you can do now</span>}
+          activities={isGoodWeather ? goodWeatherActivities : badWeatherActivities}
+          onDeleteActivity={DeleteActivity}>
+        </List >
+      </section>
+      <Form onAddActivity={AddActivity} />
+    </div>
   )
 }
 

@@ -1,4 +1,5 @@
 .form-addnewactivity {
+  z-index: 5;
   /* display: flex;
   flex-direction: column; */
   justify-content: center;
@@ -9,7 +10,7 @@
 
   margin: 5px;
   padding: 10px;
-  width: 100%;
+  width: 70%;
 
   display: grid;
   /* grid-template-columns: 4;
@@ -41,26 +42,54 @@
   box-sizing: border-box;
   display: flex;
   justify-content: left;
-
   margin: 5px;
   padding: 5px;
 
-  grid-area: input;
+  outline: none;
+  outline-style: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.87);
+  background-color: transparent;
 
-  border: 0.3px solid rgba(255, 255, 255, 0.87);
+  grid-area: input;
+}
+
+.input-name-activity:hover {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: left;
+  margin: 5px;
+  padding: 5px;
+
+  outline: none;
+  outline-style: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.87);
+  background-color: transparent;
+
+  grid-area: input;
 }
 
 .input-name-activity:focus {
   box-sizing: border-box;
   display: flex;
   justify-content: left;
-
   margin: 5px;
   padding: 5px;
 
-  grid-area: input;
+  outline: none;
+  outline-style: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.87);
+  background-color: transparent;
 
-  border: solid;
+  grid-area: input;
 }
 
 .label-for-checkbox {
@@ -78,7 +107,6 @@
   display: none;
 
   box-sizing: border-box;
-
   margin: 5px;
   padding: 5px;
   grid-area: checkbox;
@@ -124,7 +152,7 @@
   margin: -18px;
   width: 56px;
   height: 56px;
-  background: rgba(79, 46, 220, 0.5);
+  background-color: #0cf !important;
   border-radius: 50%;
   transform: scale(0);
   opacity: 1;
@@ -132,13 +160,13 @@
 }
 
 .checkbox-wrapper #input-checkbox:checked + .toggle:before {
-  background: #947ada;
+  background-color: rgb(134, 231, 255) !important;
 }
 .checkbox-wrapper #input-checkbox:checked + .toggle span {
-  background: #4f2edc;
+  background-color: rgb(1, 171, 244) !important;
   transform: translateX(20px);
   transition: all 0.2s cubic-bezier(0.8, 0.4, 0.3, 1.25), background 0.15s ease;
-  box-shadow: 0 3px 8px rgba(79, 46, 220, 0.2);
+  box-shadow: 0 3px 8px rgb(0, 73, 146) !important;
 }
 .checkbox-wrapper #input-checkbox:checked + .toggle span:before {
   transform: scale(1);
