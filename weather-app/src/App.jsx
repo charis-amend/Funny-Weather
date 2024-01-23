@@ -13,6 +13,7 @@ import cloudyBackground from "./assets/cloudy-background-img.jpg";
 import snowBackground from "./assets/snow-background-img.jpg";
 import sunnyBackground from "./assets/sunny-background-img.jpg";
 import rainyBackground from "./assets/rainy-background-img.jpg";
+import cloudAppIcon from "./assets/cloud-app-icon.png";
 
 function App() {
   const [activities, setActivities] = useLocalStorageState("activities", { defaultValue: [] })
@@ -50,6 +51,7 @@ function App() {
     const remainingActivities = activities.filter((activity) => activity !== activityToDelete);
     setActivities(remainingActivities);
   }
+  function RefreshPage() { window.location.reload(); }
 
   const isGoodWeather = weather?.isGoodWeather
   // console.log("the condition whether isGoodWeather from the api", isGoodWeather)
@@ -100,9 +102,9 @@ function App() {
 
   return (
     <div className="background-app" style={{ backgroundImage: `url(${backgroundUrlImg})` }}>
-      {/* <div className='title'>
-        <h1 className='app-title'>Weather App</h1>
-      </div> */}
+      <div className='title'>
+        <img onClick={RefreshPage} className="cloud-app-icon" src={cloudAppIcon} alt='cloud-app-icon' />
+      </div>
       <section className='weather-api-section'>
         <p className='city-weather-api'>Kharkiv</p>
         <p className='current-date-and-time'>{currentDateAndTime}</p>
