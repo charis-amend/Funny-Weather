@@ -47,7 +47,9 @@
 
   grid-area: input;
 
-  border: 0.3px solid rgba(255, 255, 255, 0.87);
+  border-bottom: 0.3px solid rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  border-radius: 10px;
 }
 
 .input-name-activity:focus {
@@ -59,8 +61,6 @@
   padding: 5px;
 
   grid-area: input;
-
-  border: solid;
 }
 
 .label-for-checkbox {

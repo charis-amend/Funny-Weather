@@ -5,7 +5,7 @@ import Form from './components/Form.jsx'
 import List from './components/List.jsx'
 import WeatherIcon from './components/WeatherIcon.jsx'
 import Background from './components/Background.jsx'
-// import { useState } from 'react'
+
 import { uid } from 'uid'
 import useLocalStorageState from 'use-local-storage-state'
 
