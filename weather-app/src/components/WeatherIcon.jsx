@@ -1,6 +1,6 @@
 
 // eslint-disable-next-line react/prop-types
-export default function WeatherBackground({ currentWeatherCondition }) {
+export default function WeatherIcon({ currentWeatherCondition }) {
 
     let WeatherComponent;
 

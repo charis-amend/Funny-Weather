@@ -1,7 +1,9 @@
 @import "./components/Form.module.css";
-@import "./components/WeatherBackground.module.css";
+@import "./components/WeatherIcon.module.css";
 @import "./components/List.module.css";
 @import "./components/weather-api-section.module.css";
+@import "./components/checkbox.module.css";
+@import "./components/Background.module.css";
 
 #root {
   max-width: 1280px;

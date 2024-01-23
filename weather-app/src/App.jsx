@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import Form from './components/Form.jsx'
 import List from './components/List.jsx'
-import WeatherBackground from './components/WeatherBackground.jsx'
+import WeatherIcon from './components/WeatherIcon.jsx'
+import Background from './components/Background.jsx'
 // import { useState } from 'react'
 import { uid } from 'uid'
 import useLocalStorageState from 'use-local-storage-state'
@@ -70,22 +71,23 @@ function App() {
       <div className='title'>
         <h1 className='app-title'>Weather App</h1>
       </div>
-      <section className='weather-api-section'>
-        {/* <h4 id='emoji-weather'>{weather?.condition}</h4> */}
-        <p className='city-weather-api'>Kharkiv</p>
-        <p className='current-date-and-time'>{currentDateAndTime}</p>
-        <WeatherBackground className='weather-background' currentWeatherCondition={weather?.condition} />
-        <h4 id='temperature-weather'>{weather?.temperature} °C</h4>
-      </section>
-      <section className='List-Section'>
-        <List
-          instructions={isGoodWeather ? <span>The weather is awesome! <br /> Go outside and:</span> : <span>Bad weather outside! <br /> Here is what you can do now:</span>}
-          activities={isGoodWeather ? goodWeatherActivities : badWeatherActivities}
-          onDeleteActivity={DeleteActivity}>
-        </List >
-      </section>
-      <Form onAddActivity={AddActivity} />
-      {/* <WeatherBackground className='weather-background' currentWeatherCondition={weather?.condition} /> */}
+      <Background className="background-app" currentWeatherCondition={weather?.condition}>
+        <section className='weather-api-section'>
+          {/* <h4 id='emoji-weather'>{weather?.condition}</h4> */}
+          <p className='city-weather-api'>Kharkiv</p>
+          <p className='current-date-and-time'>{currentDateAndTime}</p>
+          <WeatherIcon className='weather-background' currentWeatherCondition={weather?.condition} />
+          <h4 id='temperature-weather'>{weather?.temperature} °C</h4>
+        </section>
+        <section className='List-Section'>
+          <List
+            instructions={isGoodWeather ? <span>The weather is awesome! <br /> Go outside and</span> : <span>Bad weather outside! <br /> Here is what you can do now</span>}
+            activities={isGoodWeather ? goodWeatherActivities : badWeatherActivities}
+            onDeleteActivity={DeleteActivity}>
+          </List >
+        </section>
+        <Form onAddActivity={AddActivity} />
+      </Background>
     </>
   )
 }
