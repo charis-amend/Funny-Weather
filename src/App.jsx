@@ -13,7 +13,9 @@ import cloudyBackground from "./assets/cloudy-background-img.jpg";
 import snowBackground from "./assets/snow-background-img.jpg";
 import sunnyBackground from "./assets/sunny-background-img.jpg";
 import rainyBackground from "./assets/rainy-background-img.jpg";
+import defaultBackground from "./assets/default-background.jpg";
 import cloudAppIcon from "./assets/cloud-app-icon.png";
+
 
 function App() {
   const [activities, setActivities] = useLocalStorageState("activities", { defaultValue: [] })
@@ -34,7 +36,6 @@ function App() {
 
     }
     // startFetching();
-
     function intervalWeather() {
       setInterval(() => {
         startFetching();
@@ -100,7 +101,7 @@ function App() {
       case '🌧️':
         return rainyBackground;
       default:
-        return sunnyBackground;
+        return defaultBackground;
     }
   }
   const backgroundUrlImg = SwitchBackground(weather?.condition)
